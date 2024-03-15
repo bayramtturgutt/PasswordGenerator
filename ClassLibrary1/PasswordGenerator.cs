@@ -5,7 +5,9 @@ using System.Text;
 public class PasswordManager
 {
     private const int SaltSize = 32; // Size of the salt in bytes
+    private const int IterationCount = 10000; // Number of iterations for PBKDF2
 
+    
     public static void Main(string[] args)
     {
         string password = GenerateRandomPassword();
@@ -34,7 +36,7 @@ public class PasswordManager
     public static string GenerateRandomSalt()
     {
         byte[] saltBytes = new byte[SaltSize];
-        using (var rng = new RNGCryptoServiceProvider())
+        using (var rng = RandomNumberGenerator.Create())
         {
             rng.GetBytes(saltBytes);
         }
@@ -47,7 +49,7 @@ public class PasswordManager
         byte[] saltBytes = Convert.FromBase64String(salt);
 
         byte[] hashedBytes;
-        using (var pbkdf2 = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 10000))
+        using (var pbkdf2 = new Rfc2898DeriveBytes(passwordBytes, saltBytes, IterationCount, HashAlgorithmName.SHA256))
         {
             hashedBytes = pbkdf2.GetBytes(32); // 256 bits
         }
