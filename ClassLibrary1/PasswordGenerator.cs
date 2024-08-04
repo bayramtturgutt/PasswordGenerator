@@ -4,8 +4,8 @@ using System.Text;
 
 public class PasswordManager
 {
-    private const int SaltSize = 32; // Size of the salt in bytes
-    private const int IterationCount = 10000; // Number of iterations for PBKDF2
+    private const int SaltSize = 32; 
+    private const int IterationCount = 10000; 
 
     
     public static void Main(string[] args)
