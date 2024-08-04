@@ -51,7 +51,7 @@ public class PasswordManager
         byte[] hashedBytes;
         using (var pbkdf2 = new Rfc2898DeriveBytes(passwordBytes, saltBytes, IterationCount, HashAlgorithmName.SHA256))
         {
-            hashedBytes = pbkdf2.GetBytes(32); // 256 bits
+            hashedBytes = pbkdf2.GetBytes(32); 
         }
 
         return Convert.ToBase64String(hashedBytes);
