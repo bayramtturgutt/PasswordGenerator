@@ -14,9 +14,9 @@ public class PasswordManager
         string salt = GenerateRandomSalt();
         string hashedPassword = HashPassword(password, salt);
 
-        Console.WriteLine("Generated Password: " + password);
-        Console.WriteLine("Salt: " + salt);
-        Console.WriteLine("Hashed Password: " + hashedPassword);
+        Console.WriteLine($"Generated Password: {password}");
+        Console.WriteLine($"Salt: {salt}");
+        Console.WriteLine($"Hashed Password: {hashedPassword}");    
     }
 
     public static string GenerateRandomPassword(int length = 8)
