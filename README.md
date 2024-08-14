@@ -41,5 +41,5 @@ This is a simple password generator written in C# that generates a random passwo
 This password generator is provided as-is and should be used responsibly. While it employs secure practices for password generation and hashing, it is essential to implement additional security measures based on your application's specific requirements and environment.
 
 ## Credits
-- bayramtturgutt
+- bayramtturgutt - Bayram Turgut
 - turgobay
